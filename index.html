@@ -16,22 +16,19 @@
     
     <title>TO DO LIST</title>
 </head>
-<body>
+<body class="container-fluid">
     <div class="row">
-        <div class="col-4 offset-4">
+        <div class="col-8 offset-2 col-lg-4 offset-lg-4">
             <div class="container">
-                <h1>TO DO LIST</h1>
-                <div class="">
-                    <div class="">
-                        <input class="todoInput" type="text" name="item" id="item">
-                        <button class="addBtn">Add</button>
-                    </div>
-                    <div class="content">
-                    </div>
-                    <div class="float-end">
-                        <button class="disabled">Remove</button>
-                    </div>
+                <div class="py-3 mb-0">
+                    <input type="text" name="" id="newTodo">
+                    <button type="submit" class="addTodoBtn">Add new Todo</button> 
                 </div>
+                <div class="list py-3">
+
+                </div>          
+                <button type="reset" class="resetBtn">Reset the list</button>
+                <button type="submit" class="removeBtn">Remove a todo</button>      
             </div>
         </div>
     </div>

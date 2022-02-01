@@ -1,82 +1,50 @@
-$(".addBtn").click(insert);
+let newTodo = document.querySelector('#newTodo');
+let list = document.querySelector('.list');
+let addTodoBtn = document.querySelector('.addTodoBtn');
+let resetBtn = document.querySelector('.resetBtn')
+
+console.log(newTodo)
+console.log(list)
+console.log(addTodoBtn)
+
+//Add a todo to the list of items
+addTodoBtn.addEventListener('click', insert)
+
+//reset the list when we click on the reset button
+resetBtn.addEventListener('click', resetList) 
 
 
-
-function insert() {
-    let label = document.createElement("label");
-    let checkbox = document.createElement("input");
-    let list = document.querySelector(".content");
-    let todoInput = document.querySelector(".todoInput")
-
-    let todo = todoInput.value;
-    checkbox.type = "checkbox";
-    checkbox.value = todo;
-
-    label.style.display = "block";
-    label.append(checkbox);
-    label.append(todo);
-    list.append(label);
-
-    let checkBoxes = $("input[type=checkbox]");
-    let arr = Array.from(checkBoxes);
-    console.log(arr)
-   
+//Function to reset the list
+function resetList () {
+    let divs = document.querySelectorAll('.item') //select all items block
+    
+    divs.forEach(div => {
+        div.remove()
+    });
 }
 
 
-// function insert() {
-//     let item = document.querySelector('#item').value;
-//     let input = document.createElement("input");
-//     let label = document.createElement("label");
-//     let div = document.createElement("div");
+//Function to add a todo to the list
+function insert() {
+    let newDiv = document.createElement('div');
+    let newCheckBox = document.createElement('input');
 
-//     if(item != ""){
-//         div.classList.add("form-check");
-//         label.classList.add("form-check-label");
-//         input.classList.add("form-check-input");
+    newCheckBox.type = "checkbox"
+    newDiv.classList.add("item")
 
-//         //input.id = "note";
-//         input.type = "checkbox";
-//         input.value = item
-//         //label.htmlFor = "note";
+    let todo = newTodo.value;
+    console.log(todo)
 
-//         label.append(item);
-//         div.append(input);
-//         div.append(label);
-        
-//         $(".content").append(div);
+    if (todo) {
+        list.append(newDiv);
+        newDiv.append(newCheckBox);
+        newDiv.append(todo);
+    } else {
+        alert("Enter a to-do")
+    }
+}
 
-//         let inputs = document.querySelectorAll("input[type=checkbox]")
-//         let inst = Array.from(inputs)
-        
-//         // inputs.forEach(el => {
-//         //     el.addEventListener('click', () => {
-//         //         let text = el.nextSibling;
-//         //         console.log(text)
-//         //         text.classList.toggle("to-remove")
-//         //     })
-//         // })
 
-//         for (const el of inst) {
-//             el.addEventListener('change', () => {
-//                 // let newTodo = el.nextSibling;
-//                 // console.log(newTodo)
-//                 // newTodo.classList.toggle("done")
-//                 if (this.checked) {
-//                     el.nextSibling.classList.add("done")
-//                     console.log("Checkbox is checked..");
-//                   } else {
-//                     el.nextSibling.classList.remove("done")
-//                     console.log("Checkbox is not checked..");
-//                   }
-                
-//             })
-            
-//         }
-//     }
-   
-    
-// }
 
 
 
