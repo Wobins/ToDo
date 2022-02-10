@@ -30,7 +30,7 @@ function insert() {
     let newDiv = document.createElement('div');
     let newCheckBox = document.createElement('input');
 
-    newDiv.classList.add("py-2")
+    newDiv.classList.add("py-1")
     newCheckBox.type = "checkbox"
     newCheckBox.classList.add("box")
     newCheckBox.classList.add("form-check-input")
@@ -43,7 +43,7 @@ function insert() {
         list.append(newDiv);
         newDiv.append(newCheckBox);
         newDiv.append(todo);
-    } else if(todo == "") {
+    } else {
         alert("Enter a to-do")
     }
 
