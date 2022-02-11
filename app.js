@@ -7,7 +7,9 @@ let removeBtn = document.querySelector('.removeBtn')
 
 //Add a todo to the list of items
 addTodoBtn.addEventListener('click', insert)
-//newTodo.addEventListener('change', insert) //type enter to add the todo
+// newTodo.addEventListener('change', addTodo) //type enter to add the todo
+
+
 
 //reset the list when we click on the reset button
 resetBtn.addEventListener('click', resetList) 
@@ -50,13 +52,13 @@ function insert() {
     clear() //clear the input
 
     removeBtn.addEventListener('click', remove) //remove selected todo(s)
+    newCheckBox.addEventListener('click', cancel) //cross out selected todo(s)
 }
 
 
 
 //Function to remove checked items
 function remove() {
-    let items = document.querySelectorAll('.item')
     let boxes = document.querySelectorAll('.box')
 
     boxes.forEach(box => {
@@ -72,6 +74,23 @@ function remove() {
 function clear() {
     newTodo.value = ""
 }
+
+
+//Function to cancel a todo
+function cancel() {
+    let boxes = document.querySelectorAll('.box')
+
+    boxes.forEach(box => {
+        let parentBox = box.parentElement 
+        
+        if (box.checked) {
+            parentBox.style.textDecorationLine = "line-through"
+        } else {
+            parentBox.style.textDecorationLine = "none"
+        }
+    });
+}
+
 
 
 
